@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:3000/api/auth";
-
 export const VerifyOTP = () => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
@@ -12,7 +10,9 @@ export const VerifyOTP = () => {
 
   const handleResendOTP = async () => {
     try {
-      await axios.post(`${API_BASE_URL}/resend-otp`, { email });
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/resend-otp`, {
+        email,
+      });
     } catch (error) {
       console.log("resend otp error", error);
     }
@@ -23,7 +23,7 @@ export const VerifyOTP = () => {
 
     console.log(otp, email);
     try {
-      await axios.post(`${API_BASE_URL}/register`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, {
         email,
         otp,
       });

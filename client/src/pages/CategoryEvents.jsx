@@ -15,7 +15,7 @@ export const CategoryEvents = () => {
     const fetchEvents = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/api/event/category/${slug}`
+          `${import.meta.env.VITE_BACKEND_URL}/event/category/${slug}`
         );
         setEvents(data.events);
         setCategoryName(data.categoryName); // Store category name
@@ -59,7 +59,7 @@ export const CategoryEvents = () => {
           >
             {event.imagePath && (
               <img
-                src={`http://localhost:3000${event.imagePath}`}
+                src={`${import.meta.env.VITE_IMG_URL}${event.imagePath}`}
                 alt="Event"
                 className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110"
               />

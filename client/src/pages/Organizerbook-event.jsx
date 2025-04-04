@@ -11,7 +11,7 @@ export const Organizerbookevent = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:3000/api/book/bookings/scanned",
+           `${import.meta.env.VITE_BACKEND_URL}/book/bookings/scanned`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -27,7 +27,7 @@ export const Organizerbookevent = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:3000/api/event/oranizerevents",
+          `${import.meta.env.VITE_BACKEND_URL}/event/oranizerevents`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

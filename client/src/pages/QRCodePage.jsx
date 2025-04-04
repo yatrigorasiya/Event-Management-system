@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
@@ -17,12 +15,10 @@ export const QRCodePage = () => {
 
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/book/${bookingId}`
+          `${import.meta.env.VITE_BACKEND_URL}/book/${bookingId}`
         );
 
-        setQrLink(
-          `${import.meta.env.VITE_BACKEND_URL}/api/book/scan/${bookingId}`
-        );
+        setQrLink(`${import.meta.env.VITE_BACKEND_URL}/book/scan/${bookingId}`);
 
         // Always show the QR code, but warn if scanned
         setIsScanned(response.data.qrScanned);

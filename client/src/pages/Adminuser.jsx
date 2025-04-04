@@ -14,7 +14,7 @@ export const Adminuser = () => {
   const featchUserdata = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/auth/adminuser"
+        `${import.meta.env.VITE_BACKEND_URL}/auth/adminuser`
       );
       console.log(data.users);
       setUser(data.users);
@@ -29,7 +29,7 @@ export const Adminuser = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/auth/deleteuser/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/auth/deleteuser/${id}`);
       featchUserdata();
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ export const Adminuser = () => {
   const handleUpdate = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/auth/updateuser/${selectedUser._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/auth/updateuser/${selectedUser._id}`,
         formData
       );
       setIsEditModalOpen(false);

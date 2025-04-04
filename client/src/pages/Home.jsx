@@ -10,7 +10,7 @@ export const Home = () => {
   const getEvent = async (req, res) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/event/getevent"
+        `${import.meta.env.VITE_BACKEND_URL}/event/getevent`
       );
       console.log(data.event);
       setEvent(data.event);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-const API_BASE_URL = "http://localhost:3000/api/auth";
+
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -25,7 +25,7 @@ export const Login = () => {
     // Redirect to home
     navigate("/home");
     try {
-      const { data } = await axios.post(`${API_BASE_URL}/login`, user);
+      const { data } = await axios.post( `${import.meta.env.VITE_BACKEND_URL}/auth/login`, user);
       storetokenInLs(data.token);
       // localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.userId);

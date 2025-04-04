@@ -15,7 +15,7 @@ export const Organizerevent = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/api/event/oranizerevents",
+        `${import.meta.env.VITE_BACKEND_URL}/event/oranizerevents`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -32,7 +32,7 @@ export const Organizerevent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/event/delete-event/${id}`);
+      await axios.delete( `${import.meta.env.VITE_BACKEND_URL}/event/delete-event/${id}`);
       fetchEvents();
     } catch (error) {
       console.log(error);

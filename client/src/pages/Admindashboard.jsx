@@ -10,10 +10,10 @@ export const AdminDashboard = () => {
   const fetchAllData = async () => {
     try {
       const eventResponse = await axios.get(
-        "http://localhost:3000/api/event/getevent"
+       `${import.meta.env.VITE_BACKEND_URL}/event/getevent`
       );
       const userResponse = await axios.get(
-        "http://localhost:3000/api/auth/adminuser"
+       `${import.meta.env.VITE_BACKEND_URL}/auth/adminuser`
       );
 
       // Set event and user count

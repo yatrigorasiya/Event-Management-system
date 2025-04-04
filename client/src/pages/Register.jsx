@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
-const API_BASE_URL = "http://localhost:3000/api/auth";
+
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -18,7 +18,6 @@ export const Register = () => {
   const naviagte = useNavigate();
   const { storetokenInLs } = useAuth();
 
-
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -28,21 +27,20 @@ export const Register = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
+
     setMessage("");
     setError("");
 
     console.log(user);
     try {
-      const { data } = await axios.post(`${API_BASE_URL}/send-otp`, user);
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/send-otp`, user);
 
       setMessage("OTP sent successfully! Please check your email.");
       toast.success("OTP sent successfully! Please check your email.");
 
       storetokenInLs(data.token);
       localStorage.setItem("email", user.email);
-     
-     
+
       naviagte("/verify-otp");
     } catch (error) {
       if (error.response) {
@@ -56,8 +54,6 @@ export const Register = () => {
 
   return (
     <>
-      
-
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-100 to-gray-200">
         <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
           {/* Heading */}

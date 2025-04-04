@@ -20,7 +20,7 @@ export const Eventdetails = () => {
   const getSingleEvent = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/api/event/getsingleevent/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/event/getsingleevent/${id}`
       );
       console.log(data.event);
       setEvent(data.event);
@@ -88,12 +88,12 @@ export const Eventdetails = () => {
       };
       console.log("request data", requestData);
       const { data } = await axios.post(
-        "http://localhost:3000/api/book/booking",
+        `${import.meta.env.VITE_BACKEND_URL}/book/booking`,
         requestData
       );
 
       toast.success(data.message);
-     
+
       setShowModal(false);
     } catch (error) {
       console.error("Booking error", error);
@@ -106,7 +106,7 @@ export const Eventdetails = () => {
     try {
       const requestData = { eventId: id, userId, ...formData };
       const { data } = await axios.post(
-        "http://localhost:3000/api/book/request-approval",
+        `${import.meta.env.VITE_BACKEND_URL}/book/request-approval`,
         requestData
       );
       console.log(data);
@@ -132,7 +132,7 @@ export const Eventdetails = () => {
           {event.imagePath && (
             <div className="mt-6">
               <img
-                src={`http://localhost:3000${event.imagePath}`}
+                src={`${import.meta.env.VITE_IMG_URL}${event.imagePath}`}
                 alt="Event"
                 className="w-full h-64 object-cover rounded-lg shadow-md"
               />
@@ -177,7 +177,6 @@ export const Eventdetails = () => {
         </div>
       </div>
 
-    
       {/* Modal for Booking Form */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-opacity-50">

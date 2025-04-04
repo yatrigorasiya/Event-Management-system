@@ -35,7 +35,7 @@ export const Contact = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/contact/contact-details",
+        `${import.meta.env.VITE_BACKEND_URL}/contact/contact-details`,
         contact
       );
 
