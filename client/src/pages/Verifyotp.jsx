@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 const API_BASE_URL = "http://localhost:3000/api/auth";
 
 export const VerifyOTP = () => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
+
   const email = localStorage.getItem("email");
 
   const handleResendOTP = async () => {
@@ -18,9 +20,14 @@ export const VerifyOTP = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     console.log(otp, email);
     try {
-      await axios.post(`${API_BASE_URL}/register`, { email, otp });
+      await axios.post(`${API_BASE_URL}/register`, {
+        email,
+        otp,
+      });
+
       navigate("/login");
     } catch (error) {
       console.log("OTP verification failed", error);

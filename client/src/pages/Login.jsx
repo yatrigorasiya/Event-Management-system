@@ -21,6 +21,9 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+
+    // Redirect to home
+    navigate("/home");
     try {
       const { data } = await axios.post(`${API_BASE_URL}/login`, user);
       storetokenInLs(data.token);

@@ -27,31 +27,41 @@ import { Adminlayout } from "./components/layout/Adminlayout";
 import { Admincategory } from "./pages/Admincategory";
 import { Searchresult } from "./pages/Searchresult";
 
+
 export const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          
-          <Route path="/" element={<Register />} />
-          <Route path="/verify-otp" element={<VerifyOTP />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/organizer-form" element={<Organizerform />} />
-          <Route path="/qr-scan/:bookingId" element={<QRCodePage />} />
-          <Route path="/confirm-ticket/:bookingId" element={<TicketConfirmationPage />} />
+         
+            <Route path="/" element={<Register />} />
+            <Route path="/verify-otp" element={<VerifyOTP />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/organizer-form" element={<Organizerform />} />
+            <Route path="/qr-scan/:bookingId" element={<QRCodePage />} />
+            <Route
+              path="/confirm-ticket/:bookingId"
+              element={<TicketConfirmationPage />}
+            />
+         
 
-          <Route element={<Layout />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/category/:slug" element={<CategoryEvents />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/event-details/:id" element={<Eventdetails />} />
-            <Route path="/search-results" element={<Searchresult />} />
-          </Route>
+         
+            <Route element={<Layout />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/category/:slug" element={<CategoryEvents />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/event-details/:id" element={<Eventdetails />} />
+              <Route path="/search-results" element={<Searchresult />} />
+            </Route>
+         
 
           <Route element={<Organizerlayout />}>
-            <Route path="/organizer-dashboard" element={<Organizerdashoard />}/>
+            <Route
+              path="/organizer-dashboard"
+              element={<Organizerdashoard />}
+            />
             <Route path="/event" element={<Organizerevent />} />
             <Route path="/book-event" element={<Organizerbookevent />} />
           </Route>
@@ -62,7 +72,6 @@ export const App = () => {
             <Route path="/admin-event" element={<Adminevent />} />
             <Route path="/admin-category" element={<Admincategory />} />
           </Route>
-
         </Routes>
       </BrowserRouter>
     </>

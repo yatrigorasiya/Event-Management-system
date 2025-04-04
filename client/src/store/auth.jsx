@@ -26,6 +26,9 @@ export const AuthProvider = ({ children }) => {
     setToken("");
     setUser("");
     setRole(null);
+    setIsRegistered(false);
+    setIsOTPVerified(false);
+    setIsOTPValid(false);
 
     return localStorage.removeItem("token");
   };
@@ -70,6 +73,7 @@ export const AuthProvider = ({ children }) => {
         user,
         role,
         userAuthentication,
+       
       }}
     >
       {children}

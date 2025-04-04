@@ -18,6 +18,7 @@ export const Register = () => {
   const naviagte = useNavigate();
   const { storetokenInLs } = useAuth();
 
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -27,6 +28,7 @@ export const Register = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
     setMessage("");
     setError("");
 
@@ -39,6 +41,8 @@ export const Register = () => {
 
       storetokenInLs(data.token);
       localStorage.setItem("email", user.email);
+     
+     
       naviagte("/verify-otp");
     } catch (error) {
       if (error.response) {
