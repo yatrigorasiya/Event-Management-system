@@ -33,7 +33,7 @@ export const Register = () => {
 
     console.log(user);
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/send-otp`, user);
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/send-otp`, user);
 
       setMessage("OTP sent successfully! Please check your email.");
       toast.success("OTP sent successfully! Please check your email.");

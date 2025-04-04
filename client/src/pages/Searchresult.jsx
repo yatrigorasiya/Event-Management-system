@@ -20,7 +20,7 @@ export const Searchresult = () => {
             >
               {event.imagePath && (
                 <img
-                  src={`http://localhost:3000${event.imagePath}`}
+                  src={ `${import.meta.env.VITE_BACKEND_URL}${event.imagePath}`}
                   alt="Event"
                   className="w-full h-56 object-cover"
                 />

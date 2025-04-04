@@ -29,7 +29,7 @@ export const AdminRequestModal = ({ isOpen, onClose, onAdminApproved }) => {
       }
 
       const res = await axios.post(
-       `${import.meta.env.VITE_BACKEND_URL}/auth/request-admin`,
+       `${import.meta.env.VITE_BACKEND_URL}/api/auth/request-admin`,
         { reason: adminReason },
         {
           headers: { Authorization: `Bearer ${token}` },

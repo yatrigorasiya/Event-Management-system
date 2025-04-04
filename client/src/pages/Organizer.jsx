@@ -39,7 +39,7 @@ export const Organizer = ({ eventId, closePopup, refreshEvents }) => {
   const getAllcategory = async () => {
     try {
       const { data } = await axios.get(
-         `${import.meta.env.VITE_BACKEND_URL}/category/get-category`
+         `${import.meta.env.VITE_BACKEND_URL}/api/category/get-category`
       );
       console.log(data.category);
       setCategories(data.category);
@@ -52,7 +52,7 @@ export const Organizer = ({ eventId, closePopup, refreshEvents }) => {
   const fetchEventDetails = async (eventId) => {
     try {
       const { data } = await axios.get(
-        ` ${import.meta.env.VITE_BACKEND_URL}/event/getsingleevent/${eventId}`
+        ` ${import.meta.env.VITE_BACKEND_URL}/api/event/getsingleevent/${eventId}`
       );
       if (data.event) {
         setEventData({
@@ -67,7 +67,7 @@ export const Organizer = ({ eventId, closePopup, refreshEvents }) => {
         setReminders(data.event.reminderTimes || []); 
         setPreview(
           data.event.image
-            ? `${import.meta.env.VITE_IMG_URL}/uploads/${data.event.image}`
+            ?  `${import.meta.env.VITE_BACKEND_URL}/uploads/${data.event.image}`
             : null
         );
       }
@@ -140,8 +140,8 @@ export const Organizer = ({ eventId, closePopup, refreshEvents }) => {
       const token = localStorage.getItem("token");
 
       const url = eventId
-        ?  `${import.meta.env.VITE_BACKEND_URL}/event/update/${eventId}`
-        :  `${import.meta.env.VITE_BACKEND_URL}/event/create`;
+        ?  `${import.meta.env.VITE_BACKEND_URL}/api/event/update/${eventId}`
+        :  `${import.meta.env.VITE_BACKEND_URL}/api/event/create`;
 
       const method = eventId ? axios.put : axios.post;
 

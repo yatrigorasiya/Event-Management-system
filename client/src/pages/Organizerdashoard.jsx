@@ -7,7 +7,7 @@ export const Organizerdashoard = () => {
   const getPendingBookings = async () => {
     try {
       const { data } = await axios.get(
-         `${import.meta.env.VITE_BACKEND_URL}/book/pending`,
+         `${import.meta.env.VITE_BACKEND_URL}/api/book/pending`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -26,7 +26,7 @@ export const Organizerdashoard = () => {
   const handleBookingUpdate = async (bookingId, status) => {
     try {
       await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/book/update-status`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/book/update-status`,
         { bookingId, status },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

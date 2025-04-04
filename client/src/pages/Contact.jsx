@@ -35,7 +35,7 @@ export const Contact = () => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/contact/contact-details`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/contact/contact-details`,
         contact
       );
 

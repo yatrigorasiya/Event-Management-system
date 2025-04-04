@@ -12,7 +12,7 @@ export const TicketConfirmationPage = () => {
     const fetchTicketDetails = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/book/${bookingId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/book/${bookingId}`
         );
         const data = await response.json();
 

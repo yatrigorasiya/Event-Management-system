@@ -20,7 +20,7 @@ export const Eventdetails = () => {
   const getSingleEvent = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/event/getsingleevent/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/event/getsingleevent/${id}`
       );
       console.log(data.event);
       setEvent(data.event);
@@ -88,7 +88,7 @@ export const Eventdetails = () => {
       };
       console.log("request data", requestData);
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/book/booking`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/book/booking`,
         requestData
       );
 
@@ -106,7 +106,7 @@ export const Eventdetails = () => {
     try {
       const requestData = { eventId: id, userId, ...formData };
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/book/request-approval`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/book/request-approval`,
         requestData
       );
       console.log(data);

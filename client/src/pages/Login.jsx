@@ -25,7 +25,7 @@ export const Login = () => {
     // Redirect to home
     navigate("/home");
     try {
-      const { data } = await axios.post( `${import.meta.env.VITE_BACKEND_URL}/auth/login`, user);
+      const { data } = await axios.post( `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, user);
       storetokenInLs(data.token);
       // localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.userId);

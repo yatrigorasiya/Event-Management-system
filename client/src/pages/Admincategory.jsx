@@ -16,7 +16,7 @@ export const Admincategory = () => {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/category/get-category`
+        `${import.meta.env.VITE_BACKEND_URL}/api/category/get-category`
       );
       setCategories(response.data.category);
     } catch (err) {
@@ -41,7 +41,7 @@ export const Admincategory = () => {
       if (editingCategory) {
         // Update existing category
         response = await axios.put(
-          `${import.meta.env.VITE_BACKEND_URL}/category/update/${
+          `${import.meta.env.VITE_BACKEND_URL}/api/category/update/${
             editingCategory._id
           }`,
           formData,
@@ -52,7 +52,7 @@ export const Admincategory = () => {
       } else {
         // Create new category
         response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/category/create`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/category/create`,
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -76,7 +76,7 @@ export const Admincategory = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/category/delete-category/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/category/delete-category/${id}`
       );
       fetchCategories();
     } catch (error) {

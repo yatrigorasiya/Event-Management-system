@@ -42,7 +42,7 @@ export const Organizerform = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/auth/organizer-form`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/organizer-form`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

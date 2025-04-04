@@ -10,7 +10,7 @@ export const VerifyOTP = () => {
 
   const handleResendOTP = async () => {
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/resend-otp`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/resend-otp`, {
         email,
       });
     } catch (error) {
@@ -23,7 +23,7 @@ export const VerifyOTP = () => {
 
     console.log(otp, email);
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, {
         email,
         otp,
       });

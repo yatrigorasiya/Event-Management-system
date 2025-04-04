@@ -15,10 +15,10 @@ export const QRCodePage = () => {
 
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/book/${bookingId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/book/${bookingId}`
         );
 
-        setQrLink(`${import.meta.env.VITE_BACKEND_URL}/book/scan/${bookingId}`);
+        setQrLink(`${import.meta.env.VITE_BACKEND_URL}/api/book/scan/${bookingId}`);
 
         // Always show the QR code, but warn if scanned
         setIsScanned(response.data.qrScanned);

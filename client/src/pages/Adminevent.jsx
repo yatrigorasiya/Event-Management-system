@@ -19,7 +19,7 @@ export const Adminevent = () => {
   const fetchAllEvents = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/event/getevent`
+        `${import.meta.env.VITE_BACKEND_URL}/api/event/getevent`
       );
       setEvents(data.event);
     } catch (error) {
@@ -42,7 +42,7 @@ export const Adminevent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/event/delete-event/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/event/delete-event/${id}`);
       fetchAllEvents();
     } catch (error) {
       console.error(error);
@@ -72,7 +72,7 @@ export const Adminevent = () => {
       };
 
       await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/event/update/${selectedEvent._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/event/update/${selectedEvent._id}`,
         updatedEvent,
         {
           headers: {

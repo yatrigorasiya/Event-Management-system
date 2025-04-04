@@ -12,7 +12,7 @@ export const Category = () => {
   const getCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/category/get-category`
+        `${import.meta.env.VITE_BACKEND_URL}/api/category/get-category`
       );
       setCategory(data.category);
     } catch (error) {
@@ -42,7 +42,7 @@ export const Category = () => {
             <NavLink to={`/category/${c.slug}`}>
               <div className="bg-white shadow-md rounded-xl overflow-hidden cursor-pointer">
                 <img
-                  src={`${import.meta.env.VITE_IMG_URL}${c.imagePath}`}
+                  src={ `${import.meta.env.VITE_BACKEND_URL}${c.imagePath}`}
                   alt={c.name}
                   className="w-full h-48 object-cover"
                 />
