@@ -4,7 +4,7 @@ import { VerifyOTP } from "./pages/Verifyotp";
 import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { Layout } from "./components/layout/Layout";
-import { Organizer } from "./pages/Organizer";
+
 import { Organizerform } from "./pages/Organizerform";
 import { Eventdetails } from "./pages/Eventdetails";
 import { Logout } from "./pages/Logout";
