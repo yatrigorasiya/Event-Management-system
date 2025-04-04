@@ -16,7 +16,7 @@ import { fileURLToPath } from "url";
 import "./utils/reminder.js";
 
 const corsoption = {
-  origin: "https://event-management-system-7f43.vercel.app",
+  origin: ["https://event-management-systems-rho.vercel.app"],
   methods: "GET,POST,PATCH,PUT,DELETE,HEAD",
   credentials: true,
 };
