@@ -6,8 +6,7 @@ import router from "./router/auth-router.js";
 import eventrouter from "./router/event-router.js";
 import categoryrouter from "./router/category-router.js";
 import bookrouter from "./router/booking-router.js";
-import contactrouter from "./router/contact-router.js"
-
+import contactrouter from "./router/contact-router.js";
 
 import { errormiddleware } from "./middleware/error-middleware.js";
 
@@ -17,7 +16,7 @@ import { fileURLToPath } from "url";
 import "./utils/reminder.js";
 
 const corsoption = {
-  origin: "event-management-system-7f43.vercel.app",
+  origin: "https://event-management-system-7f43.vercel.app",
   methods: "GET,POST,PATCH,PUT,DELETE,HEAD",
   credentials: true,
 };
@@ -31,8 +30,7 @@ app.use("/api/auth", router);
 app.use("/api/event", eventrouter);
 app.use("/api/category", categoryrouter);
 app.use("/api/book", bookrouter);
-app.use("/api/contact",contactrouter)
-
+app.use("/api/contact", contactrouter);
 
 app.use(errormiddleware);
 
