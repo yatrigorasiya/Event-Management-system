@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.sliderimage{
+    height:50vh;
+    background-size: cover;
+  }
