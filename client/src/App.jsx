@@ -12,9 +12,10 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 
 import { CategoryEvents } from "./pages/CategoryEvents";
-import { Organizerlayout } from "./components/layout/organizerlayout";
+
 import { Organizerdashoard } from "./pages/Organizerdashoard";
 import { Organizerevent } from "./pages/Organizerevent";
+import { Organizerlayout } from "./components/layout/Organizerlayout";
 
 import { QRCodePage } from "./pages/QRCodePage";
 import { TicketConfirmationPage } from "./pages/TicketConfirmationPage";
@@ -27,35 +28,30 @@ import { Adminlayout } from "./components/layout/Adminlayout";
 import { Admincategory } from "./pages/Admincategory";
 import { Searchresult } from "./pages/Searchresult";
 
-
 export const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-         
-            <Route path="/" element={<Register />} />
-            <Route path="/verify-otp" element={<VerifyOTP />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/organizer-form" element={<Organizerform />} />
-            <Route path="/qr-scan/:bookingId" element={<QRCodePage />} />
-            <Route
-              path="/confirm-ticket/:bookingId"
-              element={<TicketConfirmationPage />}
-            />
-         
+          <Route path="/" element={<Register />} />
+          <Route path="/verify-otp" element={<VerifyOTP />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/organizer-form" element={<Organizerform />} />
+          <Route path="/qr-scan/:bookingId" element={<QRCodePage />} />
+          <Route
+            path="/confirm-ticket/:bookingId"
+            element={<TicketConfirmationPage />}
+          />
 
-         
-            <Route element={<Layout />}>
-              <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/category/:slug" element={<CategoryEvents />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/event-details/:id" element={<Eventdetails />} />
-              <Route path="/search-results" element={<Searchresult />} />
-            </Route>
-         
+          <Route element={<Layout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/category/:slug" element={<CategoryEvents />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/event-details/:id" element={<Eventdetails />} />
+            <Route path="/search-results" element={<Searchresult />} />
+          </Route>
 
           <Route element={<Organizerlayout />}>
             <Route
