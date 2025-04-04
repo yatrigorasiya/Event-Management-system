@@ -132,7 +132,7 @@ export const Eventdetails = () => {
           {event.imagePath && (
             <div className="mt-6">
               <img
-                src={`${import.meta.env.VITE_IMG_URL}${event.imagePath}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}${event.imagePath}`}
                 alt="Event"
                 className="w-full h-64 object-cover rounded-lg shadow-md"
               />
